@@ -61,11 +61,12 @@
         </dependency>
     </dependencies>
 
+    <!--For GitHub packages-->
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>PFE ELT</name>
-            <url>https://maven.pkg.github.com/anisthesie/pfe-elt</url>
+            <name>Optimus</name>
+            <url>https://maven.pkg.github.com/anisthesie/Optimus</url>
         </repository>
     </distributionManagement>
 
