@@ -1,0 +1,1624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="588.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dz.usthb.pfeelt.ui.Controller">
+    <MenuBar prefHeight="22.0" prefWidth="912.0" VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="Aide">
+            <MenuItem mnemonicParsing="false" onAction="#aPropos" text="À propos" />
+        </Menu>
+      <Menu fx:id="themeMenu" mnemonicParsing="false" text="Theme">
+         <items>
+            <CheckMenuItem mnemonicParsing="false" onAction="#primerLight" text="Primer Light" />
+            <CheckMenuItem mnemonicParsing="false" onAction="#primerDark" text="Primer Dark" />
+            <CheckMenuItem mnemonicParsing="false" onAction="#dracula" text="Dracula " />
+            <CheckMenuItem mnemonicParsing="false" onAction="#cupertinoLight" text="Cupertino Light" />
+            <CheckMenuItem mnemonicParsing="false" onAction="#cupertinoDark" text="Cupertino Dark" />
+            <CheckMenuItem mnemonicParsing="false" onAction="#nordLight" text="Nord Light" />
+            <CheckMenuItem mnemonicParsing="false" onAction="#nordDark" selected="true" text="Nord Dark" />
+         </items>
+      </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.4" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <AnchorPane>
+                <GridPane hgap="5.0" prefHeight="577.6" prefWidth="394.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Tension de court-circuit (V)" GridPane.rowIndex="15">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <TextField fx:id="tensionCourtCircuit" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                        <Label text="Puissance nominale (kVA)">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <Label text="Tension du primaire (kV)" GridPane.rowIndex="1">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <Label text="Tension du secondaire (kV)" GridPane.rowIndex="2">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <Label text="Connexion primaire" GridPane.rowIndex="4">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <Label text="Fréquence (Hz)" GridPane.rowIndex="8">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <Label text="Pertes en court-circuit (W)" GridPane.rowIndex="10">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <Label text="Refroidissement" GridPane.rowIndex="13">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+                        <TextField fx:id="puissanceNomoinale" GridPane.columnIndex="1" />
+                        <TextField fx:id="tensionPrimaire" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="tensionSecondaire" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <children>
+                              <ChoiceBox fx:id="connexionPrimaire" layoutY="24.0" prefHeight="46.0" prefWidth="195.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <items>
+                                      <FXCollections fx:factory="observableArrayList">
+                                          <String fx:value="Delta" />
+                                          <String fx:value="Étoile" />
+                                      </FXCollections>
+                                  </items>
+                              </ChoiceBox>
+                  </children>
+               </AnchorPane>
+                        <TextField fx:id="frequence" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextField fx:id="pertesCourtCircuit" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+               <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="13">
+                  <children>
+                              <ChoiceBox prefHeight="45.6" prefWidth="195.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <items>
+                                      <FXCollections fx:factory="observableArrayList">
+                                          <String fx:value="Naturel à l'huile" />
+                                          <String fx:value="Forcé" />
+                                      </FXCollections>
+                                  </items>
+                              </ChoiceBox>
+                  </children>
+               </AnchorPane>
+                        <AnchorPane GridPane.rowIndex="20">
+                            <children>
+                                <Button fx:id="calcBtn" mnemonicParsing="false" onAction="#calcBtnClicked" prefHeight="30.4" prefWidth="110.4" text="Calculer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                            </children>
+                        </AnchorPane>
+               <Label text="Connexion secondaire" GridPane.rowIndex="6">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <children>
+                     <ChoiceBox fx:id="connexionSecondaire" prefHeight="45.6" prefWidth="195.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                         <items>
+                             <FXCollections fx:factory="observableArrayList">
+                                 <String fx:value="Delta" />
+                                 <String fx:value="Étoile" />
+                             </FXCollections>
+                         </items>
+                     </ChoiceBox>
+                  </children>
+               </AnchorPane>
+               <Label text="Isolation entre les couches (mm)" GridPane.rowIndex="17">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label text="Largeur canal de refroidissement (mm)" GridPane.rowIndex="18" />
+               <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="17">
+                  <children>
+                     <TextField fx:id="isolationCouches" prefHeight="36.0" prefWidth="181.6" text="0.3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+               </AnchorPane>
+               <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="18">
+                  <children>
+                     <TextField fx:id="largeurRefroidissement" prefHeight="36.0" prefWidth="181.6" text="5" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+               </AnchorPane>
+                    </children>
+                </GridPane>
+        </AnchorPane>
+        <AnchorPane>
+            <children>
+            <SplitPane dividerPositions="0.955" orientation="VERTICAL" prefHeight="572.8" prefWidth="594.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Calculs préliminaires">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                          <GridPane hgap="5.0" prefHeight="232.0" prefWidth="512.0" vgap="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0">
+                                              <columnConstraints>
+                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              </columnConstraints>
+                                              <rowConstraints>
+                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              </rowConstraints>
+                                              <children>
+                                          <AnchorPane>
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.4" prefWidth="173.6" text="Tension de phase primaire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="1">
+                                                      <children>
+                                                          <TextField fx:id="tensionPhasePrimaire" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <font>
+                                                                  <Font size="15.0" />
+                                                              </font>
+                                                          </TextField>
+                                                      </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="3">
+                                                      <children>
+                                                          <TextField fx:id="tensionPhaseSecondaire" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <font>
+                                                                  <Font size="15.0" />
+                                                              </font>
+                                                          </TextField>
+                                                      </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="courantPhasePrimaire" editable="false" layoutX="-21.0" layoutY="14.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                      <children>
+                                                          <TextField fx:id="courantPhaseSecondaire" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <font>
+                                                                  <Font size="15.0" />
+                                                              </font>
+                                                          </TextField>
+                                                      </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                          <TextField fx:id="puissanceApparanteColonne" editable="false" layoutX="-14.0" layoutY="21.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <font>
+                                                                  <Font size="15.0" />
+                                                              </font>
+                                                          </TextField>
+                                             </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                      <children>
+                                                          <TextField fx:id="diametreColonne" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <font>
+                                                                  <Font size="15.0" />
+                                                              </font>
+                                                          </TextField>
+                                                      </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-20.0" layoutY="6.0" prefHeight="72.0" prefWidth="148.0" text="Diamètre du canal de fuite" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                                  </AnchorPane>
+                                                  <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <AnchorPane GridPane.columnIndex="2">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.4" prefWidth="168.0" text="Tension de phase secondaire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.4" prefWidth="168.0" text="Courant de phase secondaire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="1">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.4" prefWidth="168.0" text="Courant de phase primaire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="2">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.4" prefWidth="168.0" text="Puissance apparante par colonne" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.4" prefWidth="168.0" text="Diamètre de la colonne" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                          <TextField fx:id="diametreCanalDeFuite" editable="false" prefHeight="72.0" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <font>
+                                                                  <Font size="15.0" />
+                                                              </font>
+                                                          </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                              </children>
+                                          </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                      </Tab>
+                      <Tab text="Calcul des enroulements">
+                        <content>
+                              <AnchorPane>
+                                 <children>
+                                  <GridPane hgap="5.0" prefHeight="232.0" prefWidth="512.0" vgap="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0">
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                      <children>
+                                          <AnchorPane>
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.4" prefWidth="173.6" text="Section du fer" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1">
+                                              <children>
+                                                  <TextField fx:id="sectionDuFer" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                              </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3">
+                                              <children>
+                                                  <TextField fx:id="tensionSpirePhase" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                              </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                              <children>
+                                                  <TextField fx:id="nombreSpires" editable="false" layoutX="-21.0" layoutY="14.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                              </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                              <children>
+                                                  <TextField fx:id="tensionSpireRecalc" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                              </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                              <children>
+                                                  <TextField fx:id="inductionMagnRecalc" editable="false" layoutX="-14.0" layoutY="21.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                              </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                              <children>
+                                                  <TextField fx:id="densiteCourant" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                              </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                  <TextField fx:id="sectionConducteurPrimaire" editable="false" layoutX="-18.0" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="15.0" />
+                                                      </font>
+                                                  </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="densiteCourantRecalc" editable="false" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Tension de spire par phase" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Tension de spire par phase recalculée" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Nombre de spires   (W1, W2)" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Induction magnétique recalculée" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Densité du courant" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="3">
+                                             <children>
+                                                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Section du conducteur secondaire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <font>
+                                                          <Font size="14.0" />
+                                                      </font>
+                                                  </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="4">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Section du conducteur primaire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <children>
+                                                <TextField fx:id="sectionConducteurSecondaire" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Densité du courant recalculée" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                      </children>
+                                  </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Dimensions géométriques">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <GridPane hgap="5.0" prefHeight="232.0" prefWidth="512.0" vgap="5.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <AnchorPane />
+                                          <AnchorPane GridPane.columnIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-33.0" layoutY="-1.0" prefHeight="44.0" prefWidth="129.6" text="Enroulement basse tension" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-29.0" layoutY="-7.0" prefHeight="44.0" prefWidth="129.6" text="Enroulement haute tension" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="hauteurDeBobineBT" editable="false" layoutX="-21.0" layoutY="14.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="hauteurDeBobineHT" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField fx:id="diametreCanalFuiteRecalc" editable="false" layoutX="-14.0" layoutY="21.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField fx:id="nombreSpiresHT" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="epaisseurConducteur" editable="false" layoutX="-18.0" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="diametreConducteurIsole" editable="false" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" />
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Hauteur de la bobine" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Hauteur de la bobine" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Diamètre canal de fuite recalculé" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Nombre de spires" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Épaisseur du conducteur" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="4">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Facteur de Sveltess recalculé" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <children>
+                                                <TextField fx:id="sveltessRecalc" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Diamètre du conducteur isolé" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Nombre de spires par couche" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                             <children>
+                                                <TextField fx:id="spireParCouche" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="10">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-14.0" layoutY="-6.0" prefHeight="29.6" prefWidth="129.6" text="Épaisseur de l'enroulement" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children></AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="10">
+                                             <children>
+                                                <TextField fx:id="epaisseurHT" editable="false" layoutX="-35.0" layoutY="-5.0" prefHeight="37.6" prefWidth="129.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children></AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="11">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-11.0" layoutY="-1.0" prefHeight="29.6" prefWidth="129.6" text="Épaisseur rapportée du canal de fuite" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children></AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="11">
+                                             <children>
+                                                <TextField fx:id="epaisseurRapportee" editable="false" layoutX="-14.0" layoutY="-10.0" prefHeight="38.4" prefWidth="129.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children></AnchorPane>
+                                          <Separator prefHeight="24.0" prefWidth="158.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                          <Separator prefWidth="200.0" GridPane.rowIndex="9" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Facteur de Rogowski recalculé" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="10">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Tension de court-circuit" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="11">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                             <children>
+                                                <TextField fx:id="rogowskiRecalc" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                             <children>
+                                                <TextField fx:id="ukrRecalc" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="5">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Diamètre moyen de l'enroulement" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <children>
+                                                <TextField fx:id="diametreMoyenBT" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="6">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Longueur moyenne de spire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <children>
+                                                <TextField fx:id="longueurSpire" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-33.0" layoutY="-26.0" prefHeight="46.4" prefWidth="129.6" text="Diamètre moyen de l'enroulement" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                             <children>
+                                                <TextField fx:id="diametreMoyenHT" editable="false" layoutX="8.0" layoutY="-21.0" prefHeight="46.4" prefWidth="156.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-49.0" layoutY="-22.0" prefHeight="50.4" prefWidth="129.6" text="Longueur moyenne de spire" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                             <children>
+                                                <TextField fx:id="longueurSpireHt" editable="false" layoutX="-37.0" layoutY="-28.0" prefHeight="39.2" prefWidth="129.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="7">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Longueur totale du conducteur" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                             <children>
+                                                <TextField fx:id="longueurTotale" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-8.0" layoutY="-24.0" prefHeight="48.0" prefWidth="140.0" text="Longueur totale du conducteur" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                             <children>
+                                                <TextField fx:id="longueurTotaleHt" editable="false" layoutX="-17.0" layoutY="-15.0" prefHeight="52.8" prefWidth="131.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="8">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Résistance en courant continu" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                             <children>
+                                                <TextField fx:id="resistanceCc" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.6" prefWidth="129.6" text="Nombre de couches" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                             <children>
+                                                <TextField fx:id="nombreCouches" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Résistance en courant continu" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                             <children>
+                                                <TextField fx:id="resistanceCcHt" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Circuit magnétique">
+
+                            <content>
+                                <AnchorPane>
+                                    <children>
+                                        <GridPane hgap="5.0" prefHeight="232.0" prefWidth="512.0" vgap="5.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <AnchorPane>
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.4" prefWidth="173.6" text="Largeur de la fenêtre" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="1">
+                                                    <children>
+                                                        <TextField fx:id="largeurFenetre" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="3">
+                                             <children>
+                                                        <TextField fx:id="poidsBt" editable="false" layoutX="-11.0" layoutY="-12.0" prefHeight="68.8" prefWidth="129.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                             </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <TextField fx:id="hauteurFenetre" editable="false" layoutX="-21.0" layoutY="14.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <TextField fx:id="poidsHt" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <TextField fx:id="sectionCulasse" editable="false" layoutX="-14.0" layoutY="21.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="poidsCulasses" editable="false" layoutX="-26.0" layoutY="-2.0" prefHeight="60.0" prefWidth="142.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                    <children>
+                                                        <TextField fx:id="longueurCulasseSansCoins" editable="false" layoutX="-18.0" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                             <children>
+                                                <TextField fx:id="poidsColonnes" editable="false" layoutX="-10.0" layoutY="5.0" prefHeight="65.6" prefWidth="132.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="2">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="-6.0" prefHeight="68.8" prefWidth="129.6" text="Poids du cuivre basse tension" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Poids du cuivre haute tension" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Hauteur de la fenêtre" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.rowIndex="3">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Section de la culasse" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-7.0" layoutY="-3.0" prefHeight="60.0" prefWidth="161.6" text="Poids des culasses" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.rowIndex="4">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Longueur de la culasse sans coins" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.rowIndex="5">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Largeur de la culasse" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                    <children>
+                                                        <TextField fx:id="largeurCulasse" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="4.0" prefHeight="64.0" prefWidth="160.8" text="Poids des colonnes" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                                </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="6">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.8" prefWidth="168.0" text="Hauteur de la culasse" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <children>
+                                                        <TextField fx:id="hauteurCulasse" editable="false" prefHeight="68.8" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <Separator prefWidth="200.0" GridPane.rowIndex="2" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="168.0" text="Poids total du cuivre" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font name="System Bold" size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                             <children>
+                                                        <TextField fx:id="poidsTotal" editable="false" prefHeight="60.0" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <font>
+                                                                <Font size="15.0" />
+                                                            </font>
+                                                        </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="160.8" text="Poids des coins" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                             <children>
+                                                <TextField fx:id="poidsCoins" editable="false" prefHeight="65.6" prefWidth="132.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="160.8" text="Poids total du circuit magnétique" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                             <children>
+                                                <TextField fx:id="poidsTotalCM" editable="false" prefHeight="65.6" prefWidth="132.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <Separator prefWidth="200.0" GridPane.rowIndex="7" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <AnchorPane GridPane.rowIndex="8">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.8" prefWidth="168.0" text="Hauteur totale du circuit magétique" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                             <children>
+                                                <TextField fx:id="hauteurTcm" editable="false" prefHeight="68.8" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="9">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.8" prefWidth="168.0" text="Induction magnétique dans la culasse" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                             <children>
+                                                <TextField fx:id="inductionCulasse" editable="false" prefHeight="68.8" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="10">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="68.8" prefWidth="168.0" text="Induction magnétique dans les coins" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                             <children>
+                                                <TextField fx:id="inductionCoins" editable="false" prefHeight="68.8" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Pertes et rendement">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <GridPane hgap="5.0" prefHeight="426.4" prefWidth="544.0" vgap="5.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <AnchorPane />
+                                          <AnchorPane GridPane.columnIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-33.0" layoutY="-1.0" prefHeight="44.0" prefWidth="129.6" text="Enroulement basse tension" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-29.0" layoutY="-7.0" prefHeight="44.0" prefWidth="129.6" text="Enroulement haute tension" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="pertesJouleBt" editable="false" layoutX="-21.0" layoutY="14.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                             <children>
+                                                <TextField fx:id="pertesJouleHt" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField fx:id="pertesJouleBtConnexions" editable="false" layoutX="-14.0" layoutY="21.0" prefHeight="70.4" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                             <children>
+                                                <TextField fx:id="pertesJouleHtConnexions" editable="false" prefHeight="54.4" prefWidth="168.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                             <children>
+                                                <TextField fx:id="pertesFerColonnes" editable="false" layoutX="2.0" layoutY="20.0" prefHeight="88.0" prefWidth="142.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                             <children>
+                                                <TextField fx:id="pertesFerCoins" editable="false" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" />
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Pertes Joule" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="1">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Pertes Joule" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Pertes Joule dans les connexions" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Pertes Joule dans les connexions" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="8">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="82.4" prefWidth="158.4" text="Pertes fer colonnes" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="9">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Pertes fer culasses" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                             <children>
+                                                <TextField fx:id="pertesFerCulasses" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="55.2" prefWidth="168.0" text="Pertes fer coins" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Pertes fer totales" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                             <children>
+                                                <TextField fx:id="pertesFerTotales" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.rowIndex="11">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Tension court-circuit (Uk)" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                             <children>
+                                                <TextField fx:id="tensionCourtCircuitVerif" editable="false" prefHeight="67.2" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="11">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-13.0" layoutY="4.0" prefHeight="28.0" prefWidth="133.6" text="Rendement (%)" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="3" GridPane.rowIndex="11">
+                                             <children>
+                                                <TextField fx:id="rendementGlobal" editable="false" layoutX="-24.0" layoutY="-13.0" prefHeight="37.6" prefWidth="133.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Pertes Joule enroulements" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="33.6" prefWidth="133.6" text="Pertes Joule connexions" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                             <children>
+                                                <TextField fx:id="pertesJouleEnroulements" editable="false" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                             <children>
+                                                <TextField fx:id="pertesJouleConnexions" editable="false" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Pertes supplémentaires (2% Pj)" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                             <children>
+                                                <TextField fx:id="pertesSupp" editable="false" prefHeight="57.6" prefWidth="148.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                             <children>
+                                                <TextField fx:id="pertesJouleTotales" editable="false" prefHeight="68.0" prefWidth="140.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="72.0" prefWidth="148.0" text="Pertes Joule totales" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <Separator prefWidth="200.0" GridPane.rowIndex="7" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                          <Separator prefWidth="200.0" GridPane.rowIndex="10" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                                          <Separator prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <AnchorPane prefHeight="213.0" prefWidth="544.0" />
+              </items>
+            </SplitPane>
+            </children>
+        </AnchorPane>
+    </SplitPane>
+</VBox>
