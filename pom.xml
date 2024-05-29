@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dz.usthb</groupId>
-    <artifactId>pfe-elt</artifactId>
+    <artifactId>optimus</artifactId>
     <version>0.1-290524-DEMO</version>
-    <name>pfe-elt</name>
+    <name>Optimus</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
