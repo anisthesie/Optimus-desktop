@@ -1,5 +1,6 @@
 package dz.usthb.pfeelt.ui;
 
+import dz.usthb.pfeelt.ee.TransformerConfiguration;
 import dz.usthb.pfeelt.helpers.EEHelpers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,286 +11,239 @@ import static dz.usthb.pfeelt.helpers.EEHelpers.getDoubleFromTextField;
 import static dz.usthb.pfeelt.helpers.EEHelpers.getSpecificLosses;
 
 public class Controller {
+
     @FXML
     private Button calcBtn;
-
     @FXML
     private TextField tensionPhaseSecondaire;
-
     @FXML
     private TextField puissanceApparanteColonne;
-
     @FXML
     private TextField pertesCourtCircuit;
-
     @FXML
     private TextField sectionDuFer;
-
     @FXML
     private TextField diametreCanalFuiteRecalc;
-
     @FXML
     private TextField tensionCourtCircuit;
-
     @FXML
     private TextField puissanceNomoinale;
-
     @FXML
     private TextField tensionPrimaire, tensionSecondaire;
-
     @FXML
     private TextField tensionPhasePrimaire;
-
     @FXML
     private TextField sveltessRecalc;
-
     @FXML
     private TextField epaisseurHT;
-
     @FXML
     private TextField courantPhasePrimaire;
-
     @FXML
     private TextField courantPhaseSecondaire;
-
     @FXML
     private TextField diametreColonne;
-
     @FXML
     private TextField diametreCanalDeFuite;
-
     @FXML
     private TextField frequence;
-
     @FXML
     private TextField tensionSpireRecalc;
-
     @FXML
     private TextField nombreSpiresHT;
-
     @FXML
     private TextField tensionSpirePhase;
-
     @FXML
     private TextField diametreConducteurIsole;
-
     @FXML
     private TextField nombreSpires;
-
     @FXML
     private TextField inductionMagnRecalc;
-
     @FXML
     private TextField densiteCourant;
-
     @FXML
     private TextField densiteCourantRecalc;
-
     @FXML
     private TextField sectionConducteurPrimaire;
-
     @FXML
     private TextField hauteurDeBobineBT;
-
     @FXML
     private TextField hauteurDeBobineHT;
-
     @FXML
     private TextField spireParCouche;
-
     @FXML
     private TextField epaisseurConducteur;
-
     @FXML
     private TextField sectionConducteurSecondaire;
-
     @FXML
     private TextField nombreCouches;
-
     @FXML
     private TextField rogowskiRecalc;
-
     @FXML
     private TextField diametreMoyenBT;
-
     @FXML
     private TextField ukrRecalc;
-
     @FXML
     private TextField isolationCouches;
-
     @FXML
     private TextField largeurRefroidissement;
-
     @FXML
     private TextField longueurSpire;
-
     @FXML
     private TextField epaisseurRapportee;
-
     @FXML
     private TextField longueurTotale;
-
     @FXML
     private TextField resistanceCc;
-
     @FXML
     private TextField largeurFenetre;
-
     @FXML
     private TextField hauteurFenetre;
-
     @FXML
     private TextField sectionCulasse;
-
     @FXML
     private TextField longueurCulasseSansCoins;
-
     @FXML
     private TextField largeurCulasse;
-
     @FXML
     private TextField resistanceCcHt;
-
     @FXML
     private TextField longueurTotaleHt;
-
     @FXML
     private TextField longueurSpireHt;
-
     @FXML
     private TextField diametreMoyenHT;
-
-
     @FXML
     private TextField hauteurCulasse;
-
     @FXML
     private TextField poidsHt;
-
     @FXML
     private TextField poidsBt;
-
     @FXML
     private TextField poidsTotal;
-
     @FXML
     private TextField poidsCoins;
-
     @FXML
     private TextField poidsColonnes;
-
     @FXML
     private TextField poidsCulasses;
-
     @FXML
     private TextField poidsTotalCM;
-
     @FXML
     private TextField hauteurTcm;
-
     @FXML
     private TextField inductionCoins;
-
     @FXML
     private TextField pertesJouleBt;
-
     @FXML
     private TextField pertesJouleHtConnexions;
-
     @FXML
     private TextField pertesJouleHt;
-
     @FXML
     private TextField pertesJouleConnexions;
-
     @FXML
     private TextField pertesJouleEnroulements;
-
     @FXML
     private TextField pertesJouleBtConnexions;
-
     @FXML
     private TextField pertesSupp;
-
-
     @FXML
     private TextField pertesFerCoins;
-
     @FXML
     private TextField pertesFerColonnes;
-
     @FXML
     private TextField pertesFerCulasses;
-
     @FXML
     private TextField pertesFerTotales;
-
     @FXML
     private TextField rendementGlobal;
-
     @FXML
     private TextField tensionCourtCircuitVerif;
-
     @FXML
     private TextField pertesJouleTotales;
-
     @FXML
     private TextField inductionCulasse;
-
     @FXML
     private ChoiceBox<String> connexionPrimaire;
-
     @FXML
     private ChoiceBox<String> connexionSecondaire;
-
-
+    @FXML
+    private ChoiceBox<String> refroidissementField;
     @FXML
     private Menu themeMenu;
-
-
     @FXML
-    void aPropos(ActionEvent event) {
-        new Alert(Alert.AlertType.INFORMATION, "Optimus est un logiciel qui permet l'étude d'un transformateur triphasé à partir de méthodes de calculs.\n Ce logiciel a été crée par Anis Mebani et Mehdi Nouri, étudiants de l'USTHB en 2024. \n © Tous droits réservés", ButtonType.CLOSE).showAndWait();
+    private Label errorLabel;
+
+    public TransformerConfiguration currentConfiguration;
+
+    public Scene getScene() {
+        return calcBtn.getScene();
     }
 
-    @FXML
-    void cupertinoDark(ActionEvent event) {
-        Theme.handleTheme(this, Theme.CUPERTINO_DARK);
+    public Menu getThemeMenu() {
+        return themeMenu;
     }
 
-    @FXML
-    void cupertinoLight(ActionEvent event) {
-        Theme.handleTheme(this, Theme.CUPERTINO_LIGHT);
-    }
+    private TransformerConfiguration readConfig() {
+        double[] parsedInputs = new double[8];
+        TransformerConfiguration.Connexion connexion1 = TransformerConfiguration.Connexion.ETOILE;
+        TransformerConfiguration.Connexion connexion2 = TransformerConfiguration.Connexion.ETOILE;
+        TransformerConfiguration.Refroidissement refroidissement = TransformerConfiguration.Refroidissement.FORCE;
 
-    @FXML
-    void dracula(ActionEvent event) {
-        Theme.handleTheme(this, Theme.DARCULA);
-    }
+        errorLabel.setVisible(false);
+        boolean error = false;
+        TextField[] inputs = {puissanceNomoinale, tensionPrimaire, tensionSecondaire, frequence, pertesCourtCircuit, tensionCourtCircuit, isolationCouches, largeurRefroidissement};
+        for (int i = 0; i < inputs.length; i++) {
+            TextField currentField = inputs[i];
+            double parsedDouble = -1;
+            try {
+                parsedDouble = Double.parseDouble(currentField.getText().replace(",", "."));
+                currentField.setStyle("-fx-border-color: null");
+                parsedInputs[i] = parsedDouble;
+            } catch (NumberFormatException e) {
+                currentField.setStyle("-fx-border-color: red");
+                error = true;
+            }
+        }
 
-    @FXML
-    void nordDark(ActionEvent event) {
-        Theme.handleTheme(this, Theme.NORD_DARK);
-    }
+        connexionPrimaire.setStyle("-fx-border-color: null");
+        if (connexionPrimaire.getValue() != null) {
+            if (connexionPrimaire.getValue().equalsIgnoreCase("delta"))
+                connexion1 = TransformerConfiguration.Connexion.DELTA;
+        } else {
+            error = true;
+            connexionPrimaire.setStyle("-fx-border-color: red");
+        }
 
-    @FXML
-    void nordLight(ActionEvent event) {
-        Theme.handleTheme(this, Theme.NORD_LIGHT);
-    }
+        connexionSecondaire.setStyle("-fx-border-color: null");
+        if (connexionSecondaire.getValue() != null) {
+            if (connexionSecondaire.getValue().equalsIgnoreCase("delta"))
+                connexion2 = TransformerConfiguration.Connexion.DELTA;
+        } else {
+            error = true;
+            connexionSecondaire.setStyle("-fx-border-color: red");
+        }
 
-    @FXML
-    void primerDark(ActionEvent event) {
-        Theme.handleTheme(this, Theme.PRIMER_DARK);
-    }
+        refroidissementField.setStyle("-fx-border-color: null");
+        if (refroidissementField.getValue() != null) {
+            if (refroidissementField.getValue().equalsIgnoreCase("naturel"))
+                refroidissement = TransformerConfiguration.Refroidissement.NATUREL;
+        } else {
+            error = true;
+            refroidissementField.setStyle("-fx-border-color: red");
+        }
 
-    @FXML
-    void primerLight(ActionEvent event) {
-        Theme.handleTheme(this, Theme.PRIMER_LIGHT);
+        errorLabel.setVisible(error);
+
+        return error ? null : new TransformerConfiguration(parsedInputs, connexion1, connexion2, refroidissement);
     }
 
     @FXML
     void calcBtnClicked(ActionEvent event) {
+
+        currentConfiguration = readConfig();
+        if (currentConfiguration == null) return;
+
+
         String connexionPrimaireStr = connexionPrimaire.getValue();
         String connexionSecondaireStr = connexionSecondaire.getValue();
 
@@ -679,11 +633,55 @@ public class Controller {
         //-----------------
     }
 
-    public Scene getScene() {
-        return calcBtn.getScene();
+    @FXML
+    void saveConfigEvent(ActionEvent event) {
+        System.out.println("save config");
     }
 
-    public Menu getThemeMenu() {
-        return themeMenu;
+    @FXML
+    void loadConfigEvent(ActionEvent event) {
+        System.out.println("load config");
     }
+
+    @FXML
+    void aPropos(ActionEvent event) {
+        new Alert(Alert.AlertType.INFORMATION, "Optimus est un logiciel qui permet l'étude d'un transformateur triphasé à partir de méthodes de calculs.\n Ce logiciel a été crée par Anis Mebani et Mehdi Nouri, étudiants de l'USTHB en 2024. \n © Tous droits réservés", ButtonType.CLOSE).showAndWait();
+    }
+
+    @FXML
+    void cupertinoDark(ActionEvent event) {
+        Theme.handleTheme(this, Theme.CUPERTINO_DARK);
+    }
+
+    @FXML
+    void cupertinoLight(ActionEvent event) {
+        Theme.handleTheme(this, Theme.CUPERTINO_LIGHT);
+    }
+
+    @FXML
+    void dracula(ActionEvent event) {
+        Theme.handleTheme(this, Theme.DARCULA);
+    }
+
+    @FXML
+    void nordDark(ActionEvent event) {
+        Theme.handleTheme(this, Theme.NORD_DARK);
+    }
+
+    @FXML
+    void nordLight(ActionEvent event) {
+        Theme.handleTheme(this, Theme.NORD_LIGHT);
+    }
+
+    @FXML
+    void primerDark(ActionEvent event) {
+        Theme.handleTheme(this, Theme.PRIMER_DARK);
+    }
+
+    @FXML
+    void primerLight(ActionEvent event) {
+        Theme.handleTheme(this, Theme.PRIMER_LIGHT);
+    }
+
+
 }
