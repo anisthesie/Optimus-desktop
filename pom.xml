@@ -6,7 +6,7 @@
 
     <groupId>dz.usthb</groupId>
     <artifactId>optimus</artifactId>
-    <version>0.1-310524-DEMO</version>
+    <version>0.1-310524</version>
     <name>Optimus</name>
 
     <properties>

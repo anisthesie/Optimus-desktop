@@ -1,6 +1,17 @@
 package dz.usthb.pfeelt.ee;
 
-public class TransformerConfiguration {
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TransformerConfiguration implements Serializable {
+
+
+    @Serial
+    private static final long serialVersionUID = 5591926493327930251L;
+
+    private final long serialVersionUID_object;
 
     private double puissanceNominale;
     private double tensionPrimaire;
@@ -16,6 +27,8 @@ public class TransformerConfiguration {
 
     private Refroidissement refroidissement;
 
+    private List<String[]> results;
+
     public TransformerConfiguration(double puissanceNominale, double tensionPrimaire, double tensionSecondaire, double frequence, double pertesCourtCircuit, double tensionCourtCircuit, double isolationCouches, double largeurRefroidissement, Connexion connexionPrimaire, Connexion connexionSecondaire, Refroidissement refroidissement) {
         this.puissanceNominale = puissanceNominale;
         this.tensionPrimaire = tensionPrimaire;
@@ -28,6 +41,8 @@ public class TransformerConfiguration {
         this.connexionPrimaire = connexionPrimaire;
         this.connexionSecondaire = connexionSecondaire;
         this.refroidissement = refroidissement;
+        this.results = new ArrayList<>();
+        this.serialVersionUID_object = 5591926493327930251L;
     }
 
     public TransformerConfiguration(double puissanceNominale, double tensionPrimaire, double tensionSecondaire, double frequence, double pertesCourtCircuit, double tensionCourtCircuit, double isolationCouches, double largeurRefroidissement, Connexion connexionPrimaire, Connexion connexionSecondaire) {
@@ -40,6 +55,18 @@ public class TransformerConfiguration {
 
     public TransformerConfiguration(double[] config, Connexion connexionPrimaire, Connexion connexionSecondaire) {
         this(config, connexionPrimaire, connexionSecondaire, Refroidissement.NATUREL);
+    }
+
+    public List<String[]> getResults() {
+        return results;
+    }
+
+    public void clearResults() {
+        if (this.results != null) this.results.clear();
+    }
+
+    public void setResults(List<String[]> results) {
+        this.results = results;
     }
 
     public double getPuissanceNominale() {
@@ -128,6 +155,14 @@ public class TransformerConfiguration {
 
     public void setRefroidissement(Refroidissement refroidissement) {
         this.refroidissement = refroidissement;
+    }
+
+    public long getSerialVersionUID_object() {
+        return serialVersionUID_object;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public enum Connexion {

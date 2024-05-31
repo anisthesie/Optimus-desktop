@@ -1,6 +1,7 @@
 package dz.usthb.pfeelt.ui;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.opencsv.CSVWriter;
 import dz.usthb.pfeelt.ee.TransformerConfiguration;
@@ -20,7 +21,6 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static dz.usthb.pfeelt.helpers.EEHelpers.getDoubleFromTextField;
@@ -189,9 +189,11 @@ public class Controller {
     @FXML
     private Label errorLabel;
 
-    public TransformerConfiguration currentConfiguration;
+    private TransformerConfiguration currentConfiguration;
 
-    public static Gson gson = new Gson();
+    public static Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .create();
 
     public Scene getScene() {
         return calcBtn.getScene();
@@ -661,7 +663,7 @@ public class Controller {
         FileChooser fileChooser = getOptimusFolder();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
 
-        fileChooser.setInitialFileName("Transformateur " + configuration.getPuissanceNominale() + " W");
+        fileChooser.setInitialFileName("Config " + configuration.getPuissanceNominale() + "W");
 
         File file = fileChooser.showSaveDialog(getScene().getWindow());
 
@@ -673,7 +675,7 @@ public class Controller {
                 writer.write(json);
                 writer.close();
             } catch (IOException e) {
-                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier.", ButtonType.CLOSE).showAndWait();
             }
         }
     }
@@ -692,6 +694,11 @@ public class Controller {
                 FileReader reader = new FileReader(file);
                 currentConfiguration = gson.fromJson(reader, TransformerConfiguration.class);
                 reader.close();
+                System.out.println(currentConfiguration.getSerialVersionUID_object());
+                System.out.println(TransformerConfiguration.getSerialVersionUID());
+                if (currentConfiguration == null || currentConfiguration.getSerialVersionUID_object() != TransformerConfiguration.getSerialVersionUID())
+                    throw new JsonSyntaxException("");
+                currentConfiguration.clearResults();
 
                 puissanceNomoinale.setText(String.valueOf(currentConfiguration.getPuissanceNominale()));
                 tensionPrimaire.setText(String.valueOf(currentConfiguration.getTensionPrimaire()));
@@ -705,11 +712,11 @@ public class Controller {
                 connexionPrimaire.setValue(currentConfiguration.getConnexionPrimaire() == TransformerConfiguration.Connexion.DELTA ? "Delta" : "Étoile");
                 connexionSecondaire.setValue(currentConfiguration.getConnexionSecondaire() == TransformerConfiguration.Connexion.DELTA ? "Delta" : "Étoile");
                 refroidissementField.setValue(currentConfiguration.getRefroidissement() == TransformerConfiguration.Refroidissement.NATUREL ? "Naturel" : "Forcé");
-            } catch (JsonSyntaxException e) {
-                new Alert(Alert.AlertType.ERROR, "Ce fichier ne contient pas de configuration valide : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
 
             } catch (IOException e) {
-                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de la lecture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de la lecture du fichier.", ButtonType.CLOSE).showAndWait();
+            } catch (JsonSyntaxException jsonSyntaxException) {
+                new Alert(Alert.AlertType.ERROR, "Ce fichier ne contient pas de configuration.", ButtonType.CLOSE).showAndWait();
             }
         }
     }
@@ -723,7 +730,7 @@ public class Controller {
 
         FileChooser fileChooser = getOptimusFolder();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-        fileChooser.setInitialFileName("Calcul transformateur " + currentConfiguration.getPuissanceNominale() + " W");
+        fileChooser.setInitialFileName("Export CSV " + currentConfiguration.getPuissanceNominale() + "W");
 
         File file = fileChooser.showSaveDialog(getScene().getWindow());
 
@@ -733,7 +740,7 @@ public class Controller {
                     writer.writeNext(line);
 
             } catch (IOException e) {
-                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier.", ButtonType.CLOSE).showAndWait();
             }
         }
     }
@@ -747,22 +754,22 @@ public class Controller {
         FileChooser fileChooser = getOptimusFolder();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
 
-        fileChooser.setInitialFileName("Calcul transformateur " + currentConfiguration.getPuissanceNominale() + " W");
+        fileChooser.setInitialFileName("Export JSON " + currentConfiguration.getPuissanceNominale() + "W");
 
         File file = fileChooser.showSaveDialog(getScene().getWindow());
 
-        List<String[]> list = getData(false);
-        Pair<TransformerConfiguration, List<String[]>> jsonObject = new ImmutablePair<>(currentConfiguration, list);
+        currentConfiguration.setResults(getData(false));
 
         if (file != null) {
             try {
                 FileWriter writer = new FileWriter(file);
-                writer.write(gson.toJson(jsonObject));
+                writer.write(gson.toJson(currentConfiguration));
                 writer.close();
             } catch (IOException e) {
-                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier.", ButtonType.CLOSE).showAndWait();
             }
         }
+        currentConfiguration.clearResults();
     }
 
     private List<String[]> getData(boolean includeInputData) {
