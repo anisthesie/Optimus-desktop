@@ -1,11 +1,27 @@
 package dz.usthb.pfeelt.ui;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import com.opencsv.CSVWriter;
 import dz.usthb.pfeelt.ee.TransformerConfiguration;
 import dz.usthb.pfeelt.helpers.EEHelpers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static dz.usthb.pfeelt.helpers.EEHelpers.getDoubleFromTextField;
 import static dz.usthb.pfeelt.helpers.EEHelpers.getSpecificLosses;
@@ -174,6 +190,8 @@ public class Controller {
     private Label errorLabel;
 
     public TransformerConfiguration currentConfiguration;
+
+    public static Gson gson = new Gson();
 
     public Scene getScene() {
         return calcBtn.getScene();
@@ -635,12 +653,215 @@ public class Controller {
 
     @FXML
     void saveConfigEvent(ActionEvent event) {
-        System.out.println("save config");
+
+        final TransformerConfiguration configuration = readConfig();
+
+        if (configuration == null) return;
+
+        FileChooser fileChooser = getOptimusFolder();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
+
+        fileChooser.setInitialFileName("Transformateur " + configuration.getPuissanceNominale() + " W");
+
+        File file = fileChooser.showSaveDialog(getScene().getWindow());
+
+        if (file != null) {
+            String json = gson.toJson(currentConfiguration);
+
+            try {
+                FileWriter writer = new FileWriter(file);
+                writer.write(json);
+                writer.close();
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+            }
+        }
     }
 
     @FXML
     void loadConfigEvent(ActionEvent event) {
-        System.out.println("load config");
+
+        FileChooser fileChooser = getOptimusFolder();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
+
+        File file = fileChooser.showOpenDialog(getScene().getWindow());
+
+        if (file != null) {
+
+            try {
+                FileReader reader = new FileReader(file);
+                currentConfiguration = gson.fromJson(reader, TransformerConfiguration.class);
+                reader.close();
+
+                puissanceNomoinale.setText(String.valueOf(currentConfiguration.getPuissanceNominale()));
+                tensionPrimaire.setText(String.valueOf(currentConfiguration.getTensionPrimaire()));
+                tensionSecondaire.setText(String.valueOf(currentConfiguration.getTensionSecondaire()));
+                frequence.setText(String.valueOf(currentConfiguration.getFrequence()));
+                pertesCourtCircuit.setText(String.valueOf(currentConfiguration.getPertesCourtCircuit()));
+                tensionCourtCircuit.setText(String.valueOf(currentConfiguration.getTensionCourtCircuit()));
+                isolationCouches.setText(String.valueOf(currentConfiguration.getIsolationCouches()));
+                largeurRefroidissement.setText(String.valueOf(currentConfiguration.getLargeurRefroidissement()));
+
+                connexionPrimaire.setValue(currentConfiguration.getConnexionPrimaire() == TransformerConfiguration.Connexion.DELTA ? "Delta" : "Étoile");
+                connexionSecondaire.setValue(currentConfiguration.getConnexionSecondaire() == TransformerConfiguration.Connexion.DELTA ? "Delta" : "Étoile");
+                refroidissementField.setValue(currentConfiguration.getRefroidissement() == TransformerConfiguration.Refroidissement.NATUREL ? "Naturel" : "Forcé");
+            } catch (JsonSyntaxException e) {
+                new Alert(Alert.AlertType.ERROR, "Ce fichier ne contient pas de configuration valide : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de la lecture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void exportCsv(ActionEvent event) {
+
+        calcBtnClicked(null);
+
+        if (currentConfiguration == null) return;
+
+        FileChooser fileChooser = getOptimusFolder();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        fileChooser.setInitialFileName("Calcul transformateur " + currentConfiguration.getPuissanceNominale() + " W");
+
+        File file = fileChooser.showSaveDialog(getScene().getWindow());
+
+        if (file != null) {
+            try (CSVWriter writer = new CSVWriter(new FileWriter(file), ';', CSVWriter.DEFAULT_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END)) {
+                for (String[] line : getData(true))
+                    writer.writeNext(line);
+
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+            }
+        }
+    }
+
+    @FXML
+    void exportJson(ActionEvent event) {
+        calcBtnClicked(null);
+
+        if (currentConfiguration == null) return;
+
+        FileChooser fileChooser = getOptimusFolder();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON Files", "*.json"));
+
+        fileChooser.setInitialFileName("Calcul transformateur " + currentConfiguration.getPuissanceNominale() + " W");
+
+        File file = fileChooser.showSaveDialog(getScene().getWindow());
+
+        List<String[]> list = getData(false);
+        Pair<TransformerConfiguration, List<String[]>> jsonObject = new ImmutablePair<>(currentConfiguration, list);
+
+        if (file != null) {
+            try {
+                FileWriter writer = new FileWriter(file);
+                writer.write(gson.toJson(jsonObject));
+                writer.close();
+            } catch (IOException e) {
+                new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier : " + e.getMessage(), ButtonType.CLOSE).showAndWait();
+            }
+        }
+    }
+
+    private List<String[]> getData(boolean includeInputData) {
+        List<String[]> data = new ArrayList<>();
+
+        if (includeInputData) {
+
+            data.add(new String[]{"Puissance Nominale", currentConfiguration.getPuissanceNominale() + " (kVA)"});
+            data.add(new String[]{"Tension Primaire", currentConfiguration.getTensionPrimaire() + " (kV)"});
+            data.add(new String[]{"Tension Secondaire", currentConfiguration.getTensionSecondaire() + " (kV)"});
+            data.add(new String[]{"Fréquence", currentConfiguration.getFrequence() + " (hz)"});
+            data.add(new String[]{"Pertes en court-circuit", currentConfiguration.getPertesCourtCircuit() + " (W)"});
+            data.add(new String[]{"Tension de court-circuit", currentConfiguration.getTensionCourtCircuit() + " (%)"});
+            data.add(new String[]{"Isolation entre les couches", currentConfiguration.getIsolationCouches() + " (mm)"});
+            data.add(new String[]{"Largeur canal de refroidissement", currentConfiguration.getLargeurRefroidissement() + " (mm)"});
+            data.add(new String[]{"Connexion Primaire", currentConfiguration.getConnexionPrimaire().toString()});
+            data.add(new String[]{"Connexion Secondaire", currentConfiguration.getConnexionSecondaire().toString()});
+            data.add(new String[]{"Refroidissement", currentConfiguration.getRefroidissement().toString()});
+
+            data.add(new String[]{"", ""});
+
+        }
+        data.add(new String[]{"Tension de phase primaire", tensionPhasePrimaire.getText()});
+        data.add(new String[]{"Tension de phase secondaire", tensionPhaseSecondaire.getText()});
+        data.add(new String[]{"Puissance apparente par colonne", puissanceApparanteColonne.getText()});
+        data.add(new String[]{"Courant de phase primaire", courantPhasePrimaire.getText()});
+        data.add(new String[]{"Courant de phase secondaire", courantPhaseSecondaire.getText()});
+        data.add(new String[]{"Diamètre de la colonne", diametreColonne.getText()});
+        data.add(new String[]{"Diamètre du canal de fuite", diametreCanalDeFuite.getText()});
+        data.add(new String[]{"Section du fer", sectionDuFer.getText()});
+        data.add(new String[]{"Tension de spire par phase", tensionSpirePhase.getText()});
+        data.add(new String[]{"Nombre de spires", nombreSpires.getText()});
+        data.add(new String[]{"Tension de spire recalculée", tensionSpireRecalc.getText()});
+        data.add(new String[]{"Induction magnétique recalculée", inductionMagnRecalc.getText()});
+        data.add(new String[]{"Densité du courant", densiteCourant.getText()});
+        data.add(new String[]{"Densité du courant recalculée", densiteCourantRecalc.getText()});
+        data.add(new String[]{"Section conducteur primaire", sectionConducteurPrimaire.getText()});
+        data.add(new String[]{"Hauteur de bobine BT", hauteurDeBobineBT.getText()});
+        data.add(new String[]{"Hauteur de bobine HT", hauteurDeBobineHT.getText()});
+        data.add(new String[]{"Spire par couche", spireParCouche.getText()});
+        data.add(new String[]{"Epaisseur du conducteur", epaisseurConducteur.getText()});
+        data.add(new String[]{"Section conducteur secondaire", sectionConducteurSecondaire.getText()});
+        data.add(new String[]{"Nombre de couches", nombreCouches.getText()});
+        data.add(new String[]{"Facteur de Rogowski", rogowskiRecalc.getText()});
+        data.add(new String[]{"Diamètre moyen BT", diametreMoyenBT.getText()});
+        data.add(new String[]{"Tension de court-circuit recalculée", ukrRecalc.getText()});
+        data.add(new String[]{"Isolation couches", isolationCouches.getText()});
+        data.add(new String[]{"Largeur refroidissement", largeurRefroidissement.getText()});
+        data.add(new String[]{"Epaisseur enroulement HT", epaisseurHT.getText()});
+        data.add(new String[]{"Epaisseur rapportée canal de fuite", epaisseurRapportee.getText()});
+        data.add(new String[]{"Longueur totale", longueurTotale.getText()});
+        data.add(new String[]{"Résistance en courant continu BT", resistanceCc.getText()});
+        data.add(new String[]{"Largeur fenêtre", largeurFenetre.getText()});
+        data.add(new String[]{"Hauteur fenêtre", hauteurFenetre.getText()});
+        data.add(new String[]{"Section de la culasse", sectionCulasse.getText()});
+        data.add(new String[]{"Longueur culasse sans coins", longueurCulasseSansCoins.getText()});
+        data.add(new String[]{"Largeur de la culasse", largeurCulasse.getText()});
+        data.add(new String[]{"Résistance en courant continu HT", resistanceCcHt.getText()});
+        data.add(new String[]{"Longueur totale HT", longueurTotaleHt.getText()});
+        data.add(new String[]{"Longueur spire HT", longueurSpireHt.getText()});
+        data.add(new String[]{"Diamètre moyen HT", diametreMoyenHT.getText()});
+        data.add(new String[]{"Poids BT", poidsBt.getText()});
+        data.add(new String[]{"Poids HT", poidsHt.getText()});
+        data.add(new String[]{"Poids total", poidsTotal.getText()});
+        data.add(new String[]{"Poids culasses", poidsCulasses.getText()});
+        data.add(new String[]{"Poids colonnes", poidsColonnes.getText()});
+        data.add(new String[]{"Poids coins", poidsCoins.getText()});
+        data.add(new String[]{"Poids total CM", poidsTotalCM.getText()});
+        data.add(new String[]{"Hauteur totale CM", hauteurTcm.getText()});
+        data.add(new String[]{"Induction magnétique dans la culasse", inductionCulasse.getText()});
+        data.add(new String[]{"Induction magnétique dans les coins", inductionCoins.getText()});
+        data.add(new String[]{"Pertes Joule BT", pertesJouleBt.getText()});
+        data.add(new String[]{"Pertes Joule connexions BT", pertesJouleBtConnexions.getText()});
+        data.add(new String[]{"Pertes Joule HT", pertesJouleHt.getText()});
+        data.add(new String[]{"Pertes Joule connexions HT", pertesJouleHtConnexions.getText()});
+        data.add(new String[]{"Pertes Joule enroulements", pertesJouleEnroulements.getText()});
+        data.add(new String[]{"Pertes Joule connexions", pertesJouleConnexions.getText()});
+        data.add(new String[]{"Pertes supplémentaires", pertesSupp.getText()});
+        data.add(new String[]{"Pertes fer colonnes", pertesFerColonnes.getText()});
+        data.add(new String[]{"Pertes fer culasses", pertesFerCulasses.getText()});
+        data.add(new String[]{"Pertes fer coins", pertesFerCoins.getText()});
+        data.add(new String[]{"Pertes fer totales", pertesFerTotales.getText()});
+        data.add(new String[]{"Rendement global", rendementGlobal.getText()});
+
+        return data;
+    }
+
+
+    private FileChooser getOptimusFolder() {
+        FileChooser fileChooser = new FileChooser();
+
+        Path userHome = Paths.get(System.getProperty("user.home"), "Documents", "Optimus");
+        File configDirectory = userHome.toFile();
+        if (!configDirectory.exists())
+            configDirectory.mkdirs();
+
+
+        fileChooser.setInitialDirectory(configDirectory);
+        return fileChooser;
     }
 
     @FXML

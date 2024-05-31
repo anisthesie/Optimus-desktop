@@ -1,6 +1,9 @@
 module dz.usthb.pfeelt {
     requires javafx.controls;
     requires javafx.fxml;
+    requires com.google.gson;
+    requires com.opencsv;
+    requires org.apache.commons.lang3;
 
 
     opens dz.usthb.pfeelt to javafx.fxml;
@@ -9,4 +12,6 @@ module dz.usthb.pfeelt {
     opens dz.usthb.pfeelt.ui to javafx.fxml;
     exports dz.usthb.pfeelt.helpers;
     opens dz.usthb.pfeelt.helpers to javafx.fxml;
+    opens dz.usthb.pfeelt.ee to com.google.gson;
+
 }

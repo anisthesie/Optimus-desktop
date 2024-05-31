@@ -1,5 +1,6 @@
 package dz.usthb.pfeelt.helpers;
 
+import com.google.gson.Gson;
 import javafx.scene.control.TextField;
 
 public class EEHelpers {
