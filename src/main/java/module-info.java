@@ -4,6 +4,7 @@ module dz.usthb.pfeelt {
     requires com.google.gson;
     requires com.opencsv;
     requires org.apache.commons.lang3;
+    requires com.jthemedetector;
 
 
     opens dz.usthb.pfeelt to javafx.fxml;

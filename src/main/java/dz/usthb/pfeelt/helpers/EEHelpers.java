@@ -1,8 +1,5 @@
 package dz.usthb.pfeelt.helpers;
 
-import com.google.gson.Gson;
-import javafx.scene.control.TextField;
-
 public class EEHelpers {
 
     public static double getTg(double tensionNominale) {
@@ -197,23 +194,6 @@ public class EEHelpers {
             result = 17.5;
 
         return result;
-    }
-
-
-    public static double getDoubleFromTextField(final TextField field) {
-        return getDoubleFromTextField(field, "error in: "+field.getText());
-    }
-
-    public static double getDoubleFromTextField(final TextField field, String error) {
-        double result = -1;
-        try {
-            result = Double.parseDouble(field.getText());
-        } catch (Exception e) {
-            System.out.println(error);
-            e.printStackTrace();
-        }
-        return result;
-
     }
 
 }
