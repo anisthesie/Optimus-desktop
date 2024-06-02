@@ -26,14 +26,14 @@ public class DataHelpers {
 
         if (includeInputData) {
 
-            data.add(new String[]{"Puissance Nominale", currentConfiguration.getPuissanceNominale() + " (kVA)"});
-            data.add(new String[]{"Tension Primaire", currentConfiguration.getTensionPrimaire() + " (kV)"});
-            data.add(new String[]{"Tension Secondaire", currentConfiguration.getTensionSecondaire() + " (kV)"});
-            data.add(new String[]{"Fréquence", currentConfiguration.getFrequence() + " (hz)"});
-            data.add(new String[]{"Pertes en court-circuit", currentConfiguration.getPertesCourtCircuit() + " (W)"});
-            data.add(new String[]{"Tension de court-circuit", currentConfiguration.getTensionCourtCircuit() + " (%)"});
-            data.add(new String[]{"Isolation entre les couches", currentConfiguration.getIsolationCouches() + " (mm)"});
-            data.add(new String[]{"Largeur canal de refroidissement", currentConfiguration.getLargeurRefroidissement() + " (mm)"});
+            data.add(new String[]{"Puissance Nominale", (currentConfiguration.getPuissanceNominale() + " (kVA)").replace(".", ",")});
+            data.add(new String[]{"Tension Primaire", (currentConfiguration.getTensionPrimaire() + " (kV)").replace(".", ",")});
+            data.add(new String[]{"Tension Secondaire", (currentConfiguration.getTensionSecondaire() + " (kV)").replace(".", ",")});
+            data.add(new String[]{"Fréquence", (currentConfiguration.getFrequence() + " (hz)").replace(".", ",")});
+            data.add(new String[]{"Pertes en court-circuit", (currentConfiguration.getPertesCourtCircuit() + " (W)").replace(".", ",")});
+            data.add(new String[]{"Tension de court-circuit", (currentConfiguration.getTensionCourtCircuit() + " (%)").replace(".", ",")});
+            data.add(new String[]{"Isolation entre les couches", (currentConfiguration.getIsolationCouches() + " (mm)").replace(".", ",")});
+            data.add(new String[]{"Largeur canal de refroidissement", (currentConfiguration.getLargeurRefroidissement() + " (mm)").replace(".", ",")});
             data.add(new String[]{"Connexion Primaire", currentConfiguration.getConnexionPrimaire().toString()});
             data.add(new String[]{"Connexion Secondaire", currentConfiguration.getConnexionSecondaire().toString()});
             data.add(new String[]{"Refroidissement", currentConfiguration.getRefroidissement().toString()});
@@ -65,8 +65,6 @@ public class DataHelpers {
         data.add(new String[]{"Facteur de Rogowski", controller.getRogowskiRecalc().getText()});
         data.add(new String[]{"Diamètre moyen BT", controller.getDiametreMoyenBT().getText()});
         data.add(new String[]{"Tension de court-circuit recalculée", controller.getUkrRecalc().getText()});
-        data.add(new String[]{"Isolation couches", controller.getIsolationCouches().getText()});
-        data.add(new String[]{"Largeur refroidissement", controller.getLargeurRefroidissement().getText()});
         data.add(new String[]{"Epaisseur enroulement HT", controller.getEpaisseurHT().getText()});
         data.add(new String[]{"Epaisseur rapportée canal de fuite", controller.getEpaisseurRapportee().getText()});
         data.add(new String[]{"Longueur totale", controller.getLongueurTotale().getText()});

@@ -1,7 +1,6 @@
 package dz.usthb.pfeelt.ui;
 
 import com.google.gson.JsonSyntaxException;
-import com.opencsv.CSVWriter;
 import dz.usthb.pfeelt.ee.Transformer;
 import dz.usthb.pfeelt.ee.TransformerConfiguration;
 import dz.usthb.pfeelt.helpers.DataHelpers;
@@ -40,7 +39,7 @@ class EventHandler {
 
         File file = fileChooser.showSaveDialog(controller.getScene().getWindow());
 
-        controller.getCurrentConfiguration().setResults(DataHelpers.getData(controller,false));
+        controller.getCurrentConfiguration().setResults(DataHelpers.getData(controller, false));
 
         if (file != null) {
             try {
@@ -53,7 +52,7 @@ class EventHandler {
         }
         controller.getCurrentConfiguration().clearResults();
     }
-    
+
     static void handleCsvExport(Controller controller) {
 
         handleBtnClicked(controller);
@@ -66,17 +65,29 @@ class EventHandler {
 
         File file = fileChooser.showSaveDialog(controller.getScene().getWindow());
 
-        if (file != null) {
-            try (CSVWriter writer = new CSVWriter(new FileWriter(file), ';', CSVWriter.DEFAULT_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END)) {
-                for (String[] line : DataHelpers.getData(controller,true))
-                    writer.writeNext(line);
 
+        if (file != null) {
+            try {
+                FileWriter writer = new FileWriter(file);
+                for (String[] row : DataHelpers.getData(controller, true)) {
+                    String line = "\"" + row[0] + "\"" + ";";
+                    String[] split = row[1].split(" ");
+                    if (split.length <= 1)
+                        line += "\"" + row[1] + "\"";
+                    else
+                        line += "\"" + split[0] + "\"" + ";" + "\"" + split[1] + "\"";
+                    line += "\n";
+                    writer.write(line);
+                }
+                writer.close();
             } catch (IOException e) {
                 new Alert(Alert.AlertType.ERROR, "Une erreur s'est produite lors de l'écriture du fichier.", ButtonType.CLOSE).showAndWait();
             }
         }
+        controller.getCurrentConfiguration().clearResults();
+
     }
-    
+
     static void handleLoadConfig(Controller controller) {
 
         FileChooser fileChooser = DataHelpers.getOptimusFolder();
@@ -117,7 +128,7 @@ class EventHandler {
             }
         }
     }
-    
+
     static void handleSaveConfig(Controller controller) {
 
         final TransformerConfiguration configuration = readConfig(controller);
@@ -143,7 +154,7 @@ class EventHandler {
             }
         }
     }
-    
+
     static void handleBtnClicked(Controller controller) {
         controller.setCurrentConfiguration(readConfig(controller));
         if (controller.getCurrentConfiguration() == null) return;

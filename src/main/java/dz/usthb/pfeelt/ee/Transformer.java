@@ -97,7 +97,7 @@ public class Transformer {
         double w1 = Math.round((tensionPhasePrimaireDouble * 1000) / Usp);
         double w2 = Math.round((tensionPhaseSecondaireDouble * 1000) / Usp);
 
-        controller.getNombreSpires().setText(String.format("%.2f", w1) + " / " + String.format("%.2f", w2));
+        controller.getNombreSpires().setText(String.format("%.2f", w1) + "/" + String.format("%.2f", w2));
         // -------------------------
 
 
