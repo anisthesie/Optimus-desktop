@@ -2,6 +2,8 @@
 
 Optimus is an advanced tool designed to simplify the process of selecting and dimensioning three-phase transformers. Whether for industrial or residential applications, Optimus offers a comprehensive solution to quickly obtain precise specifications for your transformer needs.
 
+![capture](https://github.com/anisthesie/Optimus/assets/26345061/55fc06b3-d50e-4cdb-ad7f-bba4b219bbd2)
+
 ## Features
 
 - **Detailed Specifications**: Obtain detailed results on the characteristics of the dimensioned transformer, including rated power, short-circuit currents, power losses, and efficiency.
